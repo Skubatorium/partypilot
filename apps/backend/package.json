@@ -13,16 +13,37 @@
     "prisma:studio": "prisma studio --browser none",
     "db:start": "docker compose up -d",
     "db:stop": "docker compose down",
-    "db:reset": "prisma migrate reset --force"
+    "db:reset": "prisma migrate reset --force",
+    "format": "prettier --write \"src/**/*.{ts,tsx,json}\"",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint-staged": "lint-staged",
+    "lint:fix": "eslint src --ext ts,tsx --fix"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@prisma/client": "^6.10.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^20.11.24",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/yaml": "^1.9.7",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
     "express": "^5.1.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
     "prisma": "^6.10.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
@@ -30,7 +51,12 @@
   },
   "dependencies": {
     "@clerk/backend": "^2.3.1",
+    "@types/morgan": "^1.9.10",
     "micro": "^10.0.1",
-    "svix": "^1.68.0"
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^5.0.0",
+    "svix": "^1.68.0",
+    "winston": "^3.17.0",
+    "yaml": "^2.4.1"
   }
 }
