@@ -1,6 +1,7 @@
 import { ClerkProvider, SignIn, SignUp, SignedIn, SignedOut } from '@clerk/clerk-react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { TestId } from './types/test-ids'
 import './i18n/config'
 
 const CLERK_PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -14,27 +15,29 @@ function MainLayout() {
   const { t } = useTranslation()
   
   return (
-    <main className="container-custom min-h-screen py-16">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-indigo-600 mb-4">
+    <main className="container-custom min-h-screen py-16" data-testid={TestId.ContainerMain}>
+      <div className="text-center" data-testid={TestId.ContainerWelcome}>
+        <h1 className="text-5xl font-bold text-indigo-600 mb-4" data-testid={TestId.TextAppTitle}>
           🎉 {t('common.appName')}
         </h1>
-        <p className="text-xl text-slate-600 mb-8">
+        <p className="text-xl text-slate-600 mb-8" data-testid={TestId.TextAppTagline}>
           {t('common.tagline')}
         </p>
         
         <SignedOut>
-          <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
+          <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6" data-testid={TestId.ContainerAuthButtons}>
             <div className="space-y-4">
               <a 
                 href="/sign-in"
                 className="btn-primary block w-full text-center"
+                data-testid={TestId.ButtonSignIn}
               >
                 {t('auth.signIn')}
               </a>
               <a 
                 href="/sign-up"
                 className="btn-primary block w-full text-center bg-green-500 hover:bg-green-600"
+                data-testid={TestId.ButtonSignUp}
               >
                 {t('auth.createAccount')}
               </a>
@@ -43,8 +46,11 @@ function MainLayout() {
         </SignedOut>
 
         <SignedIn>
-          <div className="max-w-md mx-auto">
-            <button className="btn-primary">
+          <div className="max-w-md mx-auto" data-testid={TestId.ContainerDashboard}>
+            <button 
+              className="btn-primary"
+              data-testid={TestId.ButtonManageParties}
+            >
               {t('dashboard.manageParties')}
             </button>
           </div>
@@ -57,8 +63,8 @@ function MainLayout() {
 // Auth components with consistent styling
 function AuthPage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4" data-testid={TestId.ContainerAuth}>
+      <div className="w-full max-w-md" data-testid={TestId.ContainerAuthForm}>
         {children}
       </div>
     </div>
@@ -129,7 +135,7 @@ export function App() {
             path="/dashboard"
             element={
               <SignedIn>
-                <div>Dashboard (Coming Soon)</div>
+                <div data-testid="page-dashboard">Dashboard (Coming Soon)</div>
               </SignedIn>
             }
           />
