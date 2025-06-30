@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 min-h-screen;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors;
+  }
+}
+
+/* Clerk Customization */
+.cl-card {
+  @apply shadow-md rounded-xl !important;
+}
+
+.cl-internal-b3fm6y {
+  @apply hidden !important;
+}
+
+/* Fix Clerk container width */
+.cl-container {
+  @apply !max-w-none;
+}
+
+/* Ensure consistent border radius */
+.cl-socialButtonsBlockButton {
+  @apply !rounded-lg;
+}
+
+.cl-formButtonPrimary {
+  @apply !rounded-lg;
+}
+
+.cl-dividerText {
+  @apply !bg-white;
+}
+
+/* Ensure proper padding */
+.cl-card {
+  @apply !p-8;
+} 

@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "createAccount": "Create account",
+    "continueWith": "Continue with {{provider}}",
+    "toContinueTo": "to continue to {{app}}",
+    "emailAddress": "Email address",
+    "password": "Password",
+    "continue": "Continue",
+    "haveAccount": "Have an account?",
+    "signIn": "Sign in",
+    "or": "or"
+  },
+  "common": {
+    "appName": "PartyPilot"
+  }
+} 

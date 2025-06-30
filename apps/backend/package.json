@@ -1,0 +1,36 @@
+{
+  "name": "@partypilot/backend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev:all": "./scripts/dev.sh",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --create-only",
+    "prisma:apply": "prisma migrate deploy",
+    "prisma:studio": "prisma studio --browser none",
+    "db:start": "docker compose up -d",
+    "db:stop": "docker compose down",
+    "db:reset": "prisma migrate reset --force"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.10.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^20.11.24",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "prisma": "^6.10.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@clerk/backend": "^2.3.1",
+    "micro": "^10.0.1",
+    "svix": "^1.68.0"
+  }
+}
