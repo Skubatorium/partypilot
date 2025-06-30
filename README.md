@@ -1,76 +1,124 @@
-# 🚀 Partypilot
+# 🎉 PartyPilot
 
-Partypilot ist eine Webanwendung zur einfachen Organisation von Partys, Feiern und Nachbarschaftstreffen.
+A modern web application for organizing parties and events.
 
-## 📝 Über das Projekt
+## 🚀 Technology Stack
 
-Mit Partypilot können Benutzer:innen:
-- Sich registrieren und einloggen
-- Communities gründen oder beitreten
-- Partys erstellen und verwalten
-- Mitbringlisten koordinieren
+- **Frontend**: React + TypeScript + Tailwind CSS + Vite
+- **Backend**: Node.js + Express + TypeScript
+- **Database**: PostgreSQL + Prisma ORM
+- **Authentication**: Clerk
+- **Package Management**: pnpm Workspace
 
-## 🛠 Tech Stack
+## 📋 Prerequisites
 
-### Frontend
-- React
-- TypeScript
-- Tailwind CSS
-- Clerk (Auth)
+- Node.js (>= 18)
+- pnpm
+- Docker Desktop
+- Git
 
-### Backend
-- Node.js
-- Express
-- TypeScript
-- PostgreSQL
-- Prisma ORM
+## 🛠 Installation
 
-### Testing
-- Playwright (E2E)
-- Jest (Unit Tests)
+1. Clone repository:
+   ```bash
+   git clone https://github.com/yourusername/partypilot.git
+   cd partypilot
+   ```
 
-## 🚀 Getting Started
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-### Voraussetzungen
-- Node.js (v18 oder höher)
-- PostgreSQL
-- pnpm (für Monorepo-Management)
+3. Set up environment variables:
+   ```bash
+   # In apps/frontend/.env
+   VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
 
-### Installation
+   # In apps/backend/.env
+   DATABASE_URL="postgresql://partypilot:partypilot@localhost:5432/partypilot?schema=public"
+   PORT=3001
+   CLERK_SECRET_KEY=your_clerk_secret_key
+   ```
 
-1. Repository klonen
+## 🚀 Development
+
+### Database
+
 ```bash
-git clone https://github.com/yourusername/partypilot.git
-cd partypilot
+cd apps/backend
+pnpm db:start          # Start PostgreSQL
+pnpm prisma:generate   # Generate Prisma Client
+pnpm prisma:migrate    # Create database migrations
+pnpm prisma:apply      # Apply migrations
+pnpm prisma:studio     # Open database UI
 ```
 
-2. Dependencies installieren
+### Backend & Frontend
+
 ```bash
-pnpm install
+# Option 1: Start everything together
+cd apps/backend
+pnpm dev:all
+
+# Option 2: Separate terminals
+cd apps/frontend
+pnpm dev
+
+cd apps/backend
+pnpm dev
 ```
 
-3. Entwicklungsserver starten
-```bash
-# Frontend starten
-pnpm --filter frontend dev
+## 📚 Available Endpoints
 
-# Backend starten
-pnpm --filter backend dev
-```
+- Frontend: https://localhost:3000
+- Backend: http://localhost:3001
+- Prisma Studio: http://localhost:5555
+- PostgreSQL: localhost:5432
 
-## 📁 Projektstruktur
+## 🌍 Internationalization
 
-```
-partypilot/
-├── apps/
-│   ├── frontend/          → React + Tailwind + TS (UI, Modals, Forms)
-│   └── backend/           → Node.js + Express + TS (API, Auth, DB)
-├── prisma/                → Prisma Schema + Migrations
-├── docs/                  → Konzept, Use Cases, Screens, Fragen
-├── package.json          
-└── README.md
-```
+The application currently supports:
+- 🇩🇪 German (default)
+- 🇬🇧 English (planned)
 
-## 📄 Lizenz
+The user interface is currently in German, with internationalization support being implemented for future language additions.
 
-MIT
+## 👥 Authentication
+
+User authentication is handled through Clerk:
+- OAuth support (Google, Apple)
+- Email/Password sign-in
+- Secure session management
+
+## 📝 Development Guidelines
+
+1. **Code**:
+   - All code comments in English
+   - Variable names in English
+   - Function names in English
+   - Directory names in English
+   - Git commits in English
+
+2. **User Interface**:
+   - Currently in German
+   - Internationalization support prepared for future languages
+   - Translation files managed in `src/i18n/locales/`
+
+3. **Documentation**:
+   - All documentation in English
+   - API documentation in English
+   - Code comments in English
+
+4. **Database**:
+   - Table names in English
+   - Column names in English
+   - Queries in English
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
