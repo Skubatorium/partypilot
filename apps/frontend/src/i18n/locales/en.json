@@ -1,16 +1,21 @@
 {
   "auth": {
-    "createAccount": "Create account",
+    "createAccount": "Create Account",
     "continueWith": "Continue with {{provider}}",
     "toContinueTo": "to continue to {{app}}",
-    "emailAddress": "Email address",
+    "emailAddress": "Email Address",
     "password": "Password",
     "continue": "Continue",
-    "haveAccount": "Have an account?",
-    "signIn": "Sign in",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "signIn": "Sign In",
     "or": "or"
   },
   "common": {
-    "appName": "PartyPilot"
+    "appName": "PartyPilot",
+    "tagline": "Your Personal Party Organizer"
+  },
+  "dashboard": {
+    "manageParties": "Manage My Parties"
   }
 } 

@@ -7,10 +7,15 @@
     "password": "Passwort",
     "continue": "Weiter",
     "haveAccount": "Bereits ein Konto?",
+    "noAccount": "Noch kein Konto?",
     "signIn": "Anmelden",
     "or": "oder"
   },
   "common": {
-    "appName": "PartyPilot"
+    "appName": "PartyPilot",
+    "tagline": "Dein persönlicher Party-Organisator"
+  },
+  "dashboard": {
+    "manageParties": "Meine Partys verwalten"
   }
 } 

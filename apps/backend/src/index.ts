@@ -16,7 +16,7 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Webhook handler für Clerk Events
+// Webhook handler for Clerk events
 app.post('/api/webhooks/clerk', async (req, res) => {
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
 

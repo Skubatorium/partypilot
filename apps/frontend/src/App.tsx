@@ -20,7 +20,7 @@ function MainLayout() {
           🎉 {t('common.appName')}
         </h1>
         <p className="text-xl text-slate-600 mb-8">
-          Dein persönlicher Party-Organisator
+          {t('common.tagline')}
         </p>
         
         <SignedOut>
@@ -45,7 +45,7 @@ function MainLayout() {
         <SignedIn>
           <div className="max-w-md mx-auto">
             <button className="btn-primary">
-              Meine Partys verwalten
+              {t('dashboard.manageParties')}
             </button>
           </div>
         </SignedIn>
@@ -66,26 +66,28 @@ function AuthPage({ children }: { children: React.ReactNode }) {
 }
 
 export function App() {
+  const { t } = useTranslation()
+  
   return (
     <ClerkProvider 
       publishableKey={CLERK_PUBLISHABLE_KEY}
       localization={{
         socialButtonsBlockButton: "{{provider}}",
-        formButtonPrimary: "Weiter",
+        formButtonPrimary: t('auth.continue'),
         signIn: {
           start: {
-            title: "Anmelden",
-            subtitle: "um fortzufahren zu PartyPilot",
-            actionText: "Noch kein Konto?",
-            actionLink: "Registrieren"
+            title: t('auth.signIn'),
+            subtitle: t('auth.toContinueTo', { app: 'PartyPilot' }),
+            actionText: t('auth.noAccount'),
+            actionLink: t('auth.createAccount')
           }
         },
         signUp: {
           start: {
-            title: "Konto erstellen",
-            subtitle: "um fortzufahren zu PartyPilot",
-            actionText: "Bereits ein Konto?",
-            actionLink: "Anmelden"
+            title: t('auth.createAccount'),
+            subtitle: t('auth.toContinueTo', { app: 'PartyPilot' }),
+            actionText: t('auth.haveAccount'),
+            actionLink: t('auth.signIn')
           }
         }
       }}
