@@ -65,6 +65,7 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
+# Never commit real .env files, only .env.example with placeholders
 # dotenv environment variable files
 .env
 .env.local

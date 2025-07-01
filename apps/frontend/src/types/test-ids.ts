@@ -24,6 +24,7 @@ export enum TestId {
   ContainerPartyForm = 'container-party-form',
   ContainerPartyList = 'container-party-list',
   ContainerSidebar = 'container-sidebar',
+  ContainerSignup = 'container-signup',
 
   // Navigation
   NavMain = 'nav-main',
@@ -47,6 +48,7 @@ export enum TestId {
   TextSuccessMessage = 'text-success-message',
   TextPartyTitle = 'text-party-title',
   TextWelcome = 'text-welcome',
+  TextError = 'text-error',
 
   // Pages
   PageDashboard = 'page-dashboard',
@@ -65,12 +67,28 @@ export enum TestId {
   InputPartyLocation = 'input-party-location',
   InputGuestEmail = 'input-guest-email',
   InputEmailSignup = 'input-email-signup',
+  InputPasswordSignup = 'input-password-signup',
+  InputFirstNameSignup = 'input-firstname-signup',
+  InputLastNameSignup = 'input-lastname-signup',
+  InputDateOfBirthSignup = 'input-dateofbirth-signup',
+  InputAddressSignup = 'input-address-signup',
   InputPasswordLogin = 'input-password-login',
+  InputEmail = 'input-email',
+  InputPassword = 'input-password',
+  InputPasswordConfirm = 'input-password-confirm',
+  InputFirstName = 'input-first-name',
+  InputLastName = 'input-last-name',
+  InputDateOfBirth = 'input-date-of-birth',
+  InputStreet = 'input-street',
+  InputHouseNumber = 'input-house-number',
+  InputPostalCode = 'input-postal-code',
+  InputCity = 'input-city',
 
   // Lists
   ListParties = 'list-parties',
   ListGuests = 'list-guests',
   ListItems = 'list-items',
+  ListInvitations = 'list-invitations',
 
   // Modals
   ModalConfirmDelete = 'modal-confirm-delete',

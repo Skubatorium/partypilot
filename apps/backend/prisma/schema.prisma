@@ -11,13 +11,19 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  clerkId   String   @unique // Reference to Clerk User ID
-  email     String   @unique
-  firstName String
-  lastName  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  clerkId     String   @unique // Reference to Clerk User ID
+  email       String   @unique
+  firstName   String
+  lastName    String
+  dateOfBirth DateTime
+  street      String
+  houseNumber String
+  postalCode  String
+  city        String
+  country     String   @default("Deutschland")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   // Relationships will be added later
   // parties     Party[]

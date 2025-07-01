@@ -1,7 +1,8 @@
-import { ClerkProvider, SignIn, SignUp, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { ClerkProvider, SignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { TestId } from './types/test-ids'
+import { CustomSignUp } from './components/CustomSignUp'
 import './i18n/config'
 
 const CLERK_PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -77,6 +78,15 @@ export function App() {
   return (
     <ClerkProvider 
       publishableKey={CLERK_PUBLISHABLE_KEY}
+      navigate={(to) => {
+        console.log('Navigating to:', to);
+        const url = new URL(to, window.location.origin);
+        window.location.href = url.toString();
+      }}
+      afterSignInUrl="/dashboard"
+      afterSignUpUrl="/dashboard"
+      signInUrl="/sign-in"
+      signUpUrl="/sign-up"
       localization={{
         socialButtonsBlockButton: "{{provider}}",
         formButtonPrimary: t('auth.continue'),
@@ -100,7 +110,11 @@ export function App() {
     >
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout />} />
+          <Route path="/" element={
+            <SignedIn>
+              <MainLayout />
+            </SignedIn>
+          } />
           
           <Route 
             path="/sign-in/*" 
@@ -111,6 +125,11 @@ export function App() {
                   path="/sign-in"
                   signUpUrl="/sign-up"
                   afterSignInUrl="/"
+                  appearance={{
+                    elements: {
+                      formButtonPrimary: 'bg-indigo-600 hover:bg-indigo-500'
+                    }
+                  }}
                 />
               </AuthPage>
             } 
@@ -120,12 +139,7 @@ export function App() {
             path="/sign-up/*" 
             element={
               <AuthPage>
-                <SignUp 
-                  routing="path"
-                  path="/sign-up"
-                  signInUrl="/sign-in"
-                  afterSignUpUrl="/"
-                />
+                <CustomSignUp />
               </AuthPage>
             } 
           />
